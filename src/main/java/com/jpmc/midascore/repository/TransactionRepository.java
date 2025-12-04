@@ -1,0 +1,13 @@
+package com.jpmc.midascore.repository;
+
+import com.jpmc.midascore.entity.TransactionEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TransactionRepository extends JpaRepository<TransactionEntity,Long> {
+    List<TransactionEntity> findBySenderIdOrRecipientId(Long senderId, Long recipientId);
+
+}
